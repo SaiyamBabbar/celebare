@@ -1,0 +1,38 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.toolbar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.toolbar button, .toolbar select {
+    margin: 0 5px;
+    padding: 5px;
+}
+
+.toolbar button {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+#canvas {
+    width: 600px;
+    height: 400px;
+    border: 2px solid #ccc;
+    position: relative;
+    margin: 0 auto;
+}
+
+.text {
+    position: absolute;
+    cursor: move;
+    user-select: none;
+    font-size: 16px;
+}

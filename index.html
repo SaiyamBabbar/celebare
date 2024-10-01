@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editable Canvas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        #canvas-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        #canvas {
+            border: 2px solid #ccc;
+            width: 500px;
+            height: 400px;
+            position: relative;
+            background-color: white;
+            overflow: hidden; /* Ensures text doesn't go out of bounds */
+        }
+        #undo-redo-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+        #undo, #redo {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px;
+            margin: 0 10px;
+            cursor: pointer;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 20px;
+            text-align: center;
+            line-height: 20px;
+        }
+        #undo:hover, #redo:hover {
+            background-color: #45a049;
+        }
+        #controls {
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+        button, select {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover, select:hover {
+            background-color: #45a049;
+        }
+        button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+        #textElement {
+            position: absolute;
+            top: 100px;
+            left: 100px;
+            font-size: 16px;
+            cursor: pointer;
+            padding: 5px;
+            word-wrap: break-word;
+            max-width: 100%; /* Prevents text overflow */
+        }
+    </style>
+</head>
+<body>
+    <div id="canvas-container">
+        <div id="undo-redo-container">
+            <button id="undo" onclick="undo()">↺</button>
+            <button id="redo" onclick="redo()">↻</button>
+        </div>
+        <div id="canvas">
+            <div id="textElement" contenteditable="true">Edit me</div>
+        </div>
+        <div id="controls">
+            <button onclick="makeBold()">Bold</button>
+            <button onclick="makeUnderline()">Underline</button>
+            <select id="fontSelect" onchange="changeFont()">
+                <option value="Arial">Arial</option>
+                <option value="Courier New">Courier New</option>
+                <option value="Georgia">Georgia</option>
+                <option value="Times New Roman">Times New Roman</option>
+                <option value="Verdana">Verdana</option>
+            </select>
+            <button onclick="increaseFontSize()">Increase Size</button>
+            <button onclick="decreaseFontSize()">Decrease Size</button>
+            <button onclick="addText()">Add Text</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
